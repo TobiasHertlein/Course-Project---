@@ -28,20 +28,20 @@ dataset in relation to the volunteer and activity.
 ==============================================================================
 To achieve this goal, it first loads the necessary raw data from the working
 directory into R, then merges the "train" and the "test" dataset to one dataset
-called train_and_test (lines 13 to 33).
+called train_and_test (lines 13 to 30).
 
 #Step 2
 ===============================================================================
 The 2nd step is to extract only the mean and std values for each measurement. 
-This is done by "greping" all mean and std cols ind line 37 and subsetting the
-train_and_test dataset for only these cols (line 38). The resulting dataframe 
+This is done by "greping" all mean and std cols ind line 34 and subsetting the
+train_and_test dataset for only these cols (line 35). The resulting dataframe 
 is named "selected" since only selected variables are further processed in this 
 script.
 
 #Step 3
 =========================
 The 3rd step is to give the activities descriptive names, not only numbers. 
-This is achieved in lines 40 to 48 by using a for loop to exchange the numbers
+This is achieved in lines 37 to 45 by using a for loop to exchange the numbers
 which are indicating the activity by its respective "clear" name.
 
 #Step 4
@@ -49,7 +49,7 @@ which are indicating the activity by its respective "clear" name.
 The 4th step is to label the variables (in the columns) by descriptive names. 
 Since I already applied the names from the original dataset to the dataframes
 (including the "selected" dataframe) to "grep" all mean and std values in code
-line 37, my dataframe has already descriptive names for the variables. I 
+line 34, my dataframe has already descriptive names for the variables. I 
 decided to keep the names from the original raw data set, since I think that 
 they include all necessary, understandable information about the variable in
 the shortest possible way.
@@ -57,10 +57,10 @@ the shortest possible way.
 #Step 5
 ============================
 Step 5, finally, is to create a tidy data set which includes the average of
-each variable for each activity and subject. I did this in code lines 57 to 62
+each variable for each activity and subject. I did this in code lines 54 to 59
 by grouping the dataframe "selected" with the dplyr function "group_by" by 
 subject and activity and then summarizing the mean of all variables (with 
 exception of subject and activity) by the dplyr command "summarize_all".
 
 The resulting data set is then finally exported as .txt file (as proposed) in
-code line 65.
+code line 62.
